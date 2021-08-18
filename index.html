@@ -23,10 +23,11 @@
         <p>We are lauching <strong>soon!</strong></p>
         <h5>Subscribe and get notified</h5>
 
-        <form action="#">
-            <input type="email" name="email" placeholder="Your email address..">
+        <form action="#" onsubmit="return validate()">
+            <input type="text" id="email" name="email" placeholder="Your email address..">
             <input type="submit" value="Notify Me">
         </form>
+        <p id="error"></p>
         <center>
             <img src="images/illustration-dashboard.png" alt="image">
         </center>
@@ -41,6 +42,19 @@
             &copy;Copyright Ping Alrights reserved.
         </p>
     </footer>
+    <script>
+        const validate = () => {
+            const email = document.getElementById('email').value;
+            const errorP = document.getElementById('error');
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                return (true)
+            }
+            // alert("You have entered an invalid email address!")
+            errorP.innerText = 'You have entered an invalid email address!';
+            return (false)
+        }
+
+    </script>
 </body>
 
 </html>
